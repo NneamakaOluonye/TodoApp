@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block title %}Display{% endblock %}
+
+
+{% block body %}
+<h1>{{todo.title}}</h1>
+<p> created by {{todo.author.username}}</p>
+<form method="POST">
+    {% csrf_token%}
+    <input name="comment" placeholder="add a comment">
+    <button type="submit">comment</button>
+</form>
+{% for comment in comments %}
+<p>{{comment}}</p>
+{% endfor %}
+{% endblock %}
+
+
+
+
